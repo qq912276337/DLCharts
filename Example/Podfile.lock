@@ -1,0 +1,21 @@
+PODS:
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
+  - DLCharts (0.1.0)
+
+DEPENDENCIES:
+  - Charts
+  - DLCharts (from `../`)
+
+EXTERNAL SOURCES:
+  DLCharts:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
+  DLCharts: d0ffb179f2c7cd294be670b5326af5c80242f4f5
+
+PODFILE CHECKSUM: 23024aaa314e91e1e779798b1ca32467d85cb18a
+
+COCOAPODS: 1.2.1

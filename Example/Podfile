@@ -3,9 +3,6 @@ use_frameworks!
 target 'DLCharts_Example' do
   pod 'DLCharts', :path => '../'
 
-  target 'DLCharts_Tests' do
-    inherit! :search_paths
+  pod 'Charts'
 
-    
-  end
 end

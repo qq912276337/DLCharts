@@ -1,0 +1,6 @@
+framework module Pods_DLCharts_Example {
+  umbrella header "Pods-DLCharts_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -10,6 +10,11 @@
 #endif
 #endif
 
+#import "DLBaseChartItem.h"
+#import "DLChartsHeader.h"
+#import "DLLineChartView.h"
+#import "DLPieChartView.h"
+#import "DLVerticalBarChartView.h"
 
 FOUNDATION_EXPORT double DLChartsVersionNumber;
 FOUNDATION_EXPORT const unsigned char DLChartsVersionString[];

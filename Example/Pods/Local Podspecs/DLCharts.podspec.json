@@ -1,8 +1,8 @@
 {
   "name": "DLCharts",
-  "version": "0.1.0",
-  "summary": "A short description of DLCharts.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "0.1.1",
+  "summary": "DLCharts",
+  "description": "DLCharts DLCharts DLCharts DLCharts DLCharts DLCharts",
   "homepage": "https://github.com/qq912276337/DLCharts",
   "license": {
     "type": "MIT",
@@ -13,10 +13,17 @@
   },
   "source": {
     "git": "https://github.com/qq912276337/DLCharts.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "DLCharts/Classes/**/*"
+  "source_files": "DLCharts/Classes/**/*",
+  "public_header_files": "DLCharts/Classes/**/*.h",
+  "frameworks": "UIKit",
+  "dependencies": {
+    "Charts": [
+
+    ]
+  }
 }

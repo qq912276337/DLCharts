@@ -15,6 +15,4 @@
 
 @property (nonatomic, strong,readonly) PieChartView *pieChartView;
 
-- (instancetype)initWithItem:(DLBaseChartItem *)item;
-
 @end

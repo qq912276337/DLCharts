@@ -45,9 +45,7 @@
     xAxis.drawGridLinesEnabled = NO;
     xAxis.granularity = 1.0; // only intervals of 1 day
     xAxis.labelCount = 7;
-    if (_item.xAxisValueFormatterBlock) {
-        _item.xAxisValueFormatterBlock(xAxis);
-    }
+    
     
     NSNumberFormatter *leftAxisFormatter = [[NSNumberFormatter alloc] init];
     leftAxisFormatter.minimumFractionDigits = 0;
@@ -59,8 +57,6 @@
     leftAxis.valueFormatter = [[ChartDefaultAxisValueFormatter alloc] initWithFormatter:leftAxisFormatter];
     leftAxis.labelPosition = YAxisLabelPositionOutsideChart;
     leftAxis.spaceTop = 0.15;
-    
-    [self setupVerticalBarChartViewDataWithItem:_item];
 }
 
 - (void)setItem:(DLBaseChartItem *)item {
@@ -73,6 +69,10 @@
     
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return ;
+    
+    if (_item.xAxisValueFormatterBlock) {
+        _item.xAxisValueFormatterBlock(_verticalBarChartView.xAxis);
+    }
     
     NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.names.count];
     

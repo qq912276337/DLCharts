@@ -17,9 +17,8 @@
 @end
 @implementation DLPieChartView
 
-- (instancetype)initWithItem:(DLBaseChartItem *)item {
+- (instancetype)init {
     if (self = [super init]) {
-        _item = item;
         [self setupView];
     }
     return self;
@@ -42,8 +41,7 @@
     self.pieChartView.transparentCircleRadiusPercent = 0.52;//半透明空心半径占比
     self.pieChartView.transparentCircleColor = [UIColor colorWithRed:210/255.0 green:145/255.0 blue:165/255.0 alpha:0.3];//半透明空心的颜色
     self.pieChartView.drawCenterTextEnabled = NO;//是否显示中间文字
-    //饼状图描述
-    self.pieChartView.descriptionText = _item.title;
+
     self.pieChartView.descriptionFont = [UIFont systemFontOfSize:10];
     self.pieChartView.descriptionTextColor = [UIColor blackColor];
     self.pieChartView.descriptionTextAlign = NSTextAlignmentCenter;
@@ -57,8 +55,6 @@
     self.pieChartView.legend.form = ChartLegendFormCircle;//图示样式: 方形、线条、圆形
     self.pieChartView.legend.formSize = 16;//图示大小
     self.pieChartView.legend.yOffset = 8;//图示大小
-    //为饼状图提供数据
-    [self setupPieChartViewDataWithItem:_item];
     //设置动画效果
     [self.pieChartView animateWithXAxisDuration:1.0f easingOption:ChartEasingOptionEaseOutExpo];
 }
@@ -72,6 +68,9 @@
 - (void )setupPieChartViewDataWithItem:(DLBaseChartItem *)item{
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return;
+    
+    //饼状图描述
+    self.pieChartView.descriptionText = _item.title;
     
     //每个区块的数据
     NSMutableArray *yVals = [[NSMutableArray alloc] init];

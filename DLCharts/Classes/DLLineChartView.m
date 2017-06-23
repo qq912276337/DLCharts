@@ -19,9 +19,8 @@
 @end
 @implementation DLLineChartView
 
-- (instancetype)initWithItem:(DLBaseChartItem *)item {
+- (instancetype)init{
     if (self = [super init]) {
-        _item = item;
         [self setupView];
     }
     return self;
@@ -53,13 +52,10 @@
     xAxis.gridColor = [UIColor clearColor];
     xAxis.labelTextColor = [UIColor blackColor];//文字颜色
     xAxis.axisLineColor = [UIColor grayColor];
-    if (_item.xAxisValueFormatterBlock) {
-        _item.xAxisValueFormatterBlock(xAxis);
-    }
+    
     _lineChartView.rightAxis.enabled = NO;
     _lineChartView.legend.form = ChartLegendFormLine;
     [_lineChartView animateWithXAxisDuration:2.5];
-    [self setupLineChartViewDataWithItem:_item];
 }
 
 - (void)setItem:(DLBaseChartItem *)item {
@@ -72,6 +68,10 @@
 {
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return ;
+    
+    if (_item.xAxisValueFormatterBlock) {
+        _item.xAxisValueFormatterBlock(_lineChartView.xAxis);
+    }
     
     NSMutableArray *values = [NSMutableArray arrayWithCapacity:item.names.count];
     for (int i = 0; i < item.names.count; i++)

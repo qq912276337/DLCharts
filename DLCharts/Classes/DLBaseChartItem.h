@@ -25,7 +25,7 @@ typedef void(^DLChartItemXAxisValueFormatterBlock)(id xAxis);
 @property (nonatomic, strong) NSArray<NSString *> *names;
 
 @property (nonatomic, strong) NSArray<NSString *> *values;
-
+// X轴映射回调
 @property (nonatomic, copy) DLChartItemXAxisValueFormatterBlock xAxisValueFormatterBlock;
 
 

@@ -89,7 +89,7 @@
         _item.xAxisValueFormatterBlock(_chartView.xAxis);
     }
     
-    NSMutableArray *yVals = [[NSMutableArray alloc] init];
+    NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.values.count];
     for (int i = 0; i < item.values.count; i++)
     {
         [yVals addObject:[[BarChartDataEntry alloc] initWithX:i y:[item.values[i] floatValue]]];
@@ -112,8 +112,9 @@
         [dataSets addObject:set1];
         
         BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
-        [data setValueFont:[UIFont systemFontOfSize:11]];
-        data.barWidth = 0.9f;
+        [data setValueFont:[UIFont systemFontOfSize:12]];
+        data.barWidth = 0.5f;
+        
         _chartView.data = data;
     }
 }

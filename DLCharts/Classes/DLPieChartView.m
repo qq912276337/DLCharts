@@ -78,7 +78,7 @@
     self.pieChartView.descriptionText = _item.title;
     
     //每个区块的数据
-    NSMutableArray *yVals = [[NSMutableArray alloc] init];
+    NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.values.count];
     for (int i = 0; i < item.names.count; i++) {
         
         PieChartDataEntry *entry = [[PieChartDataEntry alloc] initWithValue:[item.values[i] floatValue] label:item.names[i]];

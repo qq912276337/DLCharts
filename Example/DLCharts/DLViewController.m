@@ -52,6 +52,11 @@
     hori.item = item;
     hori.frame = CGRectMake(100,400, 200, 200);
     [self.view addSubview:hori];
+    
+    DLVerticalBarChartView *ver = [DLVerticalBarChartView new];
+    ver.item = item;
+    ver.frame = CGRectMake(100,100, 200, 200);
+    [self.view addSubview:ver];
 
 }
 

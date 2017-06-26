@@ -11,6 +11,7 @@
 
 #import "DLBaseChartItem.h"
 
+#import "DLRadarChartView.h"
 #import "DLVerticalBarChartView.h"
 #import "DLPieChartView.h"
 #import "DLLineChartView.h"

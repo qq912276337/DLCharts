@@ -20,11 +20,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    self.view.backgroundColor = [UIColor whiteColor];
+
     DLBaseChartItem *item = [[DLBaseChartItem alloc] init];
     item.title = @"pie";
-    item.names = @[@"66",@"8",@"1"];
-    item.values = @[@"2",@"88",@"11"];
+    item.names = @[@"66",@"80",@"10",@"66",@"48"];
+    item.values = item.names;
     item.type = DLChartsItemTypeColumn;
     
 //    __weak typeof(item) weakItem = item;
@@ -48,16 +49,20 @@
 //    verticalChart.frame = CGRectMake(100,400, 200, 200);
 //    [self.view addSubview:verticalChart];
     
-    DLHorizontalBarChartView *hori = [DLHorizontalBarChartView new];
-    hori.item = item;
-    hori.frame = CGRectMake(100,400, 200, 200);
-    [self.view addSubview:hori];
+//    DLHorizontalBarChartView *hori = [DLHorizontalBarChartView new];
+//    hori.item = item;
+//    hori.frame = CGRectMake(100,400, 200, 200);
+//    [self.view addSubview:hori];
+//    
+//    DLVerticalBarChartView *ver = [DLVerticalBarChartView new];
+//    ver.item = item;
+//    ver.frame = CGRectMake(100,100, 200, 200);
+//    [self.view addSubview:ver];
     
-    DLVerticalBarChartView *ver = [DLVerticalBarChartView new];
-    ver.item = item;
-    ver.frame = CGRectMake(100,100, 200, 200);
-    [self.view addSubview:ver];
-
+    DLRadarChartView *radar = [[DLRadarChartView alloc] init];
+    radar.item = item;
+    radar.frame = self.view.bounds;
+    [self.view addSubview:radar];
 }
 
 - (void)didReceiveMemoryWarning

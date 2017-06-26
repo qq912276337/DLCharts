@@ -15,6 +15,7 @@
 #import "DLHorizontalBarChartView.h"
 #import "DLLineChartView.h"
 #import "DLPieChartView.h"
+#import "DLRadarChartView.h"
 #import "DLVerticalBarChartView.h"
 
 FOUNDATION_EXPORT double DLChartsVersionNumber;

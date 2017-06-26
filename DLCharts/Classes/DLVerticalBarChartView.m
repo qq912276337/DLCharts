@@ -10,7 +10,7 @@
 #import "DLBaseChartItem.h"
 #import <Charts/Charts-Swift.h>
 
-@interface DLVerticalBarChartView ()<ChartViewDelegate>
+@interface DLVerticalBarChartView ()
 
 @property (nonatomic, strong) BarChartView *verticalBarChartView;
 
@@ -38,8 +38,6 @@
     _verticalBarChartView.dragEnabled = YES;
     [_verticalBarChartView setScaleEnabled:YES];
     _verticalBarChartView.pinchZoomEnabled = NO;
-    _verticalBarChartView.rightAxis.enabled = NO;
-    _verticalBarChartView.delegate = self;
     _verticalBarChartView.drawBarShadowEnabled = NO;
     _verticalBarChartView.drawValueAboveBarEnabled = YES;
     
@@ -112,7 +110,6 @@
         
         BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
         [data setValueFont:[UIFont systemFontOfSize:12]];
-        
         data.barWidth = 0.9f;
         
         _verticalBarChartView.data = data;

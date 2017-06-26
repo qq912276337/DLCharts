@@ -14,5 +14,8 @@
 #import "DLVerticalBarChartView.h"
 #import "DLPieChartView.h"
 #import "DLLineChartView.h"
+#import "DLHorizontalBarChartView.h"
+#import <Charts/Charts-Swift.h>
+
 
 #endif /* DLChartsHeader_h */

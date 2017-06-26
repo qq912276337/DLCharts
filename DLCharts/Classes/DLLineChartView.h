@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Charts/Charts-Swift.h>
-@class DLBaseChartItem;
+@class DLBaseChartItem,LineChartView;
 
 @interface DLLineChartView : UIView
 

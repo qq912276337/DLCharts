@@ -10,7 +10,7 @@
 #import "DLBaseChartItem.h"
 #import <Charts/Charts-Swift.h>
 
-@interface DLLineChartView ()<ChartViewDelegate>
+@interface DLLineChartView ()
 
 @property (nonatomic, strong) LineChartView *lineChartView;
 
@@ -32,9 +32,6 @@
 - (void)setupView {
     _lineChartView = [[LineChartView alloc] init];
     [self addSubview:_lineChartView];
-    
-    _lineChartView.delegate = self;
-    
     _lineChartView.chartDescription.enabled = NO;
     _lineChartView.dragEnabled = YES;
     [_lineChartView setScaleEnabled:YES];

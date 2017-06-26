@@ -24,6 +24,11 @@
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _pieChartView.frame = self.bounds;
+}
+
 - (void)setupView {
     //创建饼状图
     self.pieChartView = [[PieChartView alloc] init];
@@ -114,9 +119,6 @@
     self.pieChartView.data = data;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    _pieChartView.frame = self.bounds;
-}
+
 
 @end

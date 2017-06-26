@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Charts/Charts-Swift.h>
+@class DLBaseChartItem;
 
 @interface DLLineChartView : UIView
+
+@property (nonatomic, strong) DLBaseChartItem *item;
+
+@property (nonatomic, strong,readonly) LineChartView *lineChartView;
 
 @end

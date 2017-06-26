@@ -17,12 +17,16 @@
 @end
 @implementation DLVerticalBarChartView
 
-- (instancetype)initWithItem:(DLBaseChartItem *)item {
+- (instancetype)init {
     if (self = [super init]) {
-        _item = item;
         [self setupView];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _verticalBarChartView.frame = self.bounds;
 }
 
 - (void)setupView {
@@ -42,10 +46,9 @@
     ChartXAxis *xAxis = _verticalBarChartView.xAxis;
     xAxis.labelPosition = XAxisLabelPositionBottom;
     xAxis.labelFont = [UIFont systemFontOfSize:10.f];
-    xAxis.drawGridLinesEnabled = NO;
+    xAxis.drawGridLinesEnabled = NO;//不绘制网格线
     xAxis.granularity = 1.0; // only intervals of 1 day
     xAxis.labelCount = 7;
-    
     
     NSNumberFormatter *leftAxisFormatter = [[NSNumberFormatter alloc] init];
     leftAxisFormatter.minimumFractionDigits = 0;
@@ -57,6 +60,15 @@
     leftAxis.valueFormatter = [[ChartDefaultAxisValueFormatter alloc] initWithFormatter:leftAxisFormatter];
     leftAxis.labelPosition = YAxisLabelPositionOutsideChart;
     leftAxis.spaceTop = 0.15;
+    
+    ChartYAxis *rightAxis = _verticalBarChartView.rightAxis;
+    rightAxis.enabled = YES;// 右边轴默认是不显示 需要设置为YES
+    rightAxis.labelFont = [UIFont systemFontOfSize:10.f];
+    rightAxis.labelCount = 8;
+    rightAxis.valueFormatter = leftAxis.valueFormatter;
+    rightAxis.spaceTop = 0.15;
+    
+    [_verticalBarChartView animateWithYAxisDuration:2];
 }
 
 - (void)setItem:(DLBaseChartItem *)item {
@@ -106,5 +118,7 @@
         _verticalBarChartView.data = data;
     }
 }
+
+
 
 @end

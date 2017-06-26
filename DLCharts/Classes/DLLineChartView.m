@@ -12,8 +12,6 @@
 
 @interface DLLineChartView ()<ChartViewDelegate>
 
-@property (nonatomic, strong) DLBaseChartItem *item;
-
 @property (nonatomic, strong) LineChartView *lineChartView;
 
 @end
@@ -24,6 +22,11 @@
         [self setupView];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _lineChartView.frame = self.bounds;
 }
 
 - (void)setupView {
@@ -55,7 +58,7 @@
     
     _lineChartView.rightAxis.enabled = NO;
     _lineChartView.legend.form = ChartLegendFormLine;
-    [_lineChartView animateWithXAxisDuration:2.5];
+    [_lineChartView animateWithXAxisDuration:2];
 }
 
 - (void)setItem:(DLBaseChartItem *)item {

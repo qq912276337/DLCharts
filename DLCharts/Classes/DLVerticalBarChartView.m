@@ -59,12 +59,12 @@
     leftAxis.labelPosition = YAxisLabelPositionOutsideChart;
     leftAxis.spaceTop = 0.15;
     
-    ChartYAxis *rightAxis = _chartView.rightAxis;
-    rightAxis.enabled = YES;// 右边轴默认是不显示 需要设置为YES
-    rightAxis.labelFont = [UIFont systemFontOfSize:10.f];
-    rightAxis.labelCount = 8;
-    rightAxis.valueFormatter = leftAxis.valueFormatter;
-    rightAxis.spaceTop = 0.15;
+//    ChartYAxis *rightAxis = _chartView.rightAxis;
+//    rightAxis.enabled = YES;// 右边轴默认是不显示 需要设置为YES
+//    rightAxis.labelFont = [UIFont systemFontOfSize:10.f];
+//    rightAxis.labelCount = 8;
+//    rightAxis.valueFormatter = leftAxis.valueFormatter;
+//    rightAxis.spaceTop = 0.15;
     
     [_chartView animateWithYAxisDuration:2];
 }

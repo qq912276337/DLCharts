@@ -2,7 +2,7 @@ PODS:
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
-  - DLCharts (0.1.1):
+  - DLCharts (0.1.2):
     - Charts
 
 DEPENDENCIES:
@@ -22,7 +22,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Charts: e955b9a241a14a8971d70143002c8ab1610d26b6
-  DLCharts: 95ac6b8baede1fd7fb3d254280366197635c3149
+  DLCharts: 43ca4048ea4b8997447f9d92c850113996081077
 
 PODFILE CHECKSUM: e88bc3a9049033f438f73b1c27eb44499eb40b70
 

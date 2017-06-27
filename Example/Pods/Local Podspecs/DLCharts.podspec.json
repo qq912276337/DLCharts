@@ -1,6 +1,6 @@
 {
   "name": "DLCharts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "DLCharts",
   "description": "DLCharts DLCharts DLCharts DLCharts DLCharts DLCharts",
   "homepage": "https://github.com/qq912276337/DLCharts",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/qq912276337/DLCharts.git",
-    "tag": "0.1.1"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "8.0"

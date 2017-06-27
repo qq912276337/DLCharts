@@ -7,6 +7,7 @@
 //
 
 #import "DLChartViewController.h"
+#import "DLChartValueFormatter.h"
 
 @interface DLChartViewController ()
 
@@ -31,8 +32,16 @@
     
     DLBaseChartItem *item = [[DLBaseChartItem alloc] init];
     item.title = @"chart";
-    item.names = @[@"66",@"80",@"10",@"66",@"48"];
-    item.values = item.names;
+    item.names = @[@"a",@"b",@"c",@"d",@"e"];
+    item.values = @[@"66",@"80",@"10",@"66",@"48"];
+    
+    __weak typeof(item) weakItem = item;
+    item.xAxisValueFormatterBlock = ^(ChartXAxis *xAxis) {
+        DLChartValueFormatter *format = [[DLChartValueFormatter alloc] init];
+        format.names = weakItem.names;
+        xAxis.valueFormatter = format;
+        
+    };
     
     if (_type == DLChartsItemTypePie) {
         DLPieChartView *pie = [[DLPieChartView alloc] init];
@@ -46,7 +55,7 @@
         [self.view addSubview:pie];
     } else if (_type == DLChartsItemTypeColumnVertical) {
         DLVerticalBarChartView *verticalChart = [[DLVerticalBarChartView alloc] init];
-        verticalChart.chartView.rightAxis.enabled = NO;
+//        verticalChart.chartView.rightAxis.enabled = NO;
         verticalChart.item = item;
         verticalChart.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);
         [self.view addSubview:verticalChart];

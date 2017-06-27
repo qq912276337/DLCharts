@@ -12,7 +12,7 @@
 
 @interface DLVerticalBarChartView ()
 
-@property (nonatomic, strong) BarChartView *verticalBarChartView;
+@property (nonatomic, strong) BarChartView *chartView;
 
 @end
 @implementation DLVerticalBarChartView
@@ -26,22 +26,22 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    _verticalBarChartView.frame = self.bounds;
+    _chartView.frame = self.bounds;
 }
 
 - (void)setupView {
-    _verticalBarChartView = [[BarChartView alloc] init];
-    [self addSubview:_verticalBarChartView];
+    _chartView = [[BarChartView alloc] init];
+    [self addSubview:_chartView];
     
-    _verticalBarChartView.chartDescription.enabled = NO;
-    _verticalBarChartView.drawGridBackgroundEnabled = NO;
-    _verticalBarChartView.dragEnabled = YES;
-    [_verticalBarChartView setScaleEnabled:YES];
-    _verticalBarChartView.pinchZoomEnabled = NO;
-    _verticalBarChartView.drawBarShadowEnabled = NO;
-    _verticalBarChartView.drawValueAboveBarEnabled = YES;
+    _chartView.chartDescription.enabled = NO;
+    _chartView.drawGridBackgroundEnabled = NO;
+    _chartView.dragEnabled = YES;
+    [_chartView setScaleEnabled:YES];
+    _chartView.pinchZoomEnabled = NO;
+    _chartView.drawBarShadowEnabled = NO;
+    _chartView.drawValueAboveBarEnabled = YES;
     
-    ChartXAxis *xAxis = _verticalBarChartView.xAxis;
+    ChartXAxis *xAxis = _chartView.xAxis;
     xAxis.labelPosition = XAxisLabelPositionBottom;
     xAxis.labelFont = [UIFont systemFontOfSize:10.f];
     xAxis.drawGridLinesEnabled = NO;//不绘制网格线
@@ -52,21 +52,21 @@
     leftAxisFormatter.minimumFractionDigits = 0;
     leftAxisFormatter.maximumFractionDigits = 1;
     
-    ChartYAxis *leftAxis = _verticalBarChartView.leftAxis;
+    ChartYAxis *leftAxis = _chartView.leftAxis;
     leftAxis.labelFont = [UIFont systemFontOfSize:10.f];
     leftAxis.labelCount = 8;
     leftAxis.valueFormatter = [[ChartDefaultAxisValueFormatter alloc] initWithFormatter:leftAxisFormatter];
     leftAxis.labelPosition = YAxisLabelPositionOutsideChart;
     leftAxis.spaceTop = 0.15;
     
-    ChartYAxis *rightAxis = _verticalBarChartView.rightAxis;
+    ChartYAxis *rightAxis = _chartView.rightAxis;
     rightAxis.enabled = YES;// 右边轴默认是不显示 需要设置为YES
     rightAxis.labelFont = [UIFont systemFontOfSize:10.f];
     rightAxis.labelCount = 8;
     rightAxis.valueFormatter = leftAxis.valueFormatter;
     rightAxis.spaceTop = 0.15;
     
-    [_verticalBarChartView animateWithYAxisDuration:2];
+    [_chartView animateWithYAxisDuration:2];
 }
 
 - (void)setItem:(DLBaseChartItem *)item {
@@ -81,7 +81,7 @@
     if (item.values.count <= 0) return ;
     
     if (_item.xAxisValueFormatterBlock) {
-        _item.xAxisValueFormatterBlock(_verticalBarChartView.xAxis);
+        _item.xAxisValueFormatterBlock(_chartView.xAxis);
     }
     
     NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.names.count];
@@ -92,12 +92,12 @@
     }
     
     BarChartDataSet *set1 = nil;
-    if (_verticalBarChartView.data.dataSetCount > 0)
+    if (_chartView.data.dataSetCount > 0)
     {
-        set1 = (BarChartDataSet *)_verticalBarChartView.data.dataSets[0];
+        set1 = (BarChartDataSet *)_chartView.data.dataSets[0];
         set1.values = yVals;
-        [_verticalBarChartView.data notifyDataChanged];
-        [_verticalBarChartView notifyDataSetChanged];
+        [_chartView.data notifyDataChanged];
+        [_chartView notifyDataSetChanged];
     }
     else
     {
@@ -112,7 +112,7 @@
         [data setValueFont:[UIFont systemFontOfSize:12]];
         data.barWidth = 0.9f;
         
-        _verticalBarChartView.data = data;
+        _chartView.data = data;
     }
 }
 

@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong) DLBaseChartItem *item;
 
-@property (nonatomic, strong,readonly) PieChartView *pieChartView;
+@property (nonatomic, strong,readonly) PieChartView *chartView;
 
 @end

@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong) DLBaseChartItem *item;
 
-@property (nonatomic, strong,readonly) BarChartView *verticalBarChartView;
+@property (nonatomic, strong,readonly) BarChartView *chartView;
 
 @end

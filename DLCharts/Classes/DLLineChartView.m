@@ -12,7 +12,7 @@
 
 @interface DLLineChartView ()
 
-@property (nonatomic, strong) LineChartView *lineChartView;
+@property (nonatomic, strong) LineChartView *chartView;
 
 @end
 @implementation DLLineChartView
@@ -26,36 +26,36 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    _lineChartView.frame = self.bounds;
+    _chartView.frame = self.bounds;
 }
 
 - (void)setupView {
-    _lineChartView = [[LineChartView alloc] init];
-    [self addSubview:_lineChartView];
-    _lineChartView.chartDescription.enabled = NO;
-    _lineChartView.dragEnabled = YES;
-    [_lineChartView setScaleEnabled:YES];
-    _lineChartView.pinchZoomEnabled = YES;
-    _lineChartView.drawGridBackgroundEnabled = NO;
-    _lineChartView.xAxis.gridLineDashLengths = @[@10.0, @10.0];
-    _lineChartView.xAxis.gridLineDashPhase = 0.f;
+    _chartView = [[LineChartView alloc] init];
+    [self addSubview:_chartView];
+    _chartView.chartDescription.enabled = NO;
+    _chartView.dragEnabled = YES;
+    [_chartView setScaleEnabled:YES];
+    _chartView.pinchZoomEnabled = YES;
+    _chartView.drawGridBackgroundEnabled = NO;
+    _chartView.xAxis.gridLineDashLengths = @[@10.0, @10.0];
+    _chartView.xAxis.gridLineDashPhase = 0.f;
     
-    ChartYAxis *leftAxis = _lineChartView.leftAxis;
+    ChartYAxis *leftAxis = _chartView.leftAxis;
     leftAxis.gridLineDashLengths = @[@5.f, @5.f];
     leftAxis.drawZeroLineEnabled = NO;
     leftAxis.drawLimitLinesBehindDataEnabled = YES;
     leftAxis.axisMinimum = 0.0;
     
-    ChartXAxis *xAxis = _lineChartView.xAxis;
+    ChartXAxis *xAxis = _chartView.xAxis;
     xAxis.granularityEnabled = YES;//设置重复的值不显示
     xAxis.labelPosition= XAxisLabelPositionBottom;//设置x轴数据在底部
     xAxis.gridColor = [UIColor clearColor];
     xAxis.labelTextColor = [UIColor blackColor];//文字颜色
     xAxis.axisLineColor = [UIColor grayColor];
     
-    _lineChartView.rightAxis.enabled = NO;
-    _lineChartView.legend.form = ChartLegendFormLine;
-    [_lineChartView animateWithXAxisDuration:2];
+    _chartView.rightAxis.enabled = NO;
+    _chartView.legend.form = ChartLegendFormLine;
+    [_chartView animateWithXAxisDuration:2];
 }
 
 - (void)setItem:(DLBaseChartItem *)item {
@@ -70,7 +70,7 @@
     if (item.values.count <= 0) return ;
     
     if (_item.xAxisValueFormatterBlock) {
-        _item.xAxisValueFormatterBlock(_lineChartView.xAxis);
+        _item.xAxisValueFormatterBlock(_chartView.xAxis);
     }
     
     NSMutableArray *values = [NSMutableArray arrayWithCapacity:item.names.count];
@@ -80,12 +80,12 @@
     }
     
     LineChartDataSet *set1 = nil;
-    if (_lineChartView.data.dataSetCount > 0)
+    if (_chartView.data.dataSetCount > 0)
     {
-        set1 = (LineChartDataSet *)_lineChartView.data.dataSets[0];
+        set1 = (LineChartDataSet *)_chartView.data.dataSets[0];
         set1.values = values;
-        [_lineChartView.data notifyDataChanged];
-        [_lineChartView notifyDataSetChanged];
+        [_chartView.data notifyDataChanged];
+        [_chartView notifyDataSetChanged];
     }
     else
     {
@@ -119,7 +119,7 @@
         
         LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
         
-        _lineChartView.data = data;
+        _chartView.data = data;
     }
 }
 

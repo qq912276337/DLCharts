@@ -46,7 +46,7 @@
         [self.view addSubview:pie];
     } else if (_type == DLChartsItemTypeColumnVertical) {
         DLVerticalBarChartView *verticalChart = [[DLVerticalBarChartView alloc] init];
-        verticalChart.verticalBarChartView.rightAxis.enabled = NO;
+        verticalChart.chartView.rightAxis.enabled = NO;
         verticalChart.item = item;
         verticalChart.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);
         [self.view addSubview:verticalChart];

@@ -1,6 +1,6 @@
 {
   "name": "DLCharts",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "summary": "DLCharts",
   "description": "DLCharts DLCharts DLCharts DLCharts DLCharts DLCharts",
   "homepage": "https://github.com/qq912276337/DLCharts",
@@ -13,12 +13,17 @@
   },
   "source": {
     "git": "https://github.com/qq912276337/DLCharts.git",
-    "tag": "0.1.2"
+    "tag": "0.1.3"
   },
   "platforms": {
     "ios": "8.0"
   },
   "source_files": "DLCharts/Classes/**/*",
+  "resource_bundles": {
+    "DLCharts": [
+      "DLCharts/Assets/*.png"
+    ]
+  },
   "public_header_files": "DLCharts/Classes/**/*.h",
   "frameworks": "UIKit",
   "dependencies": {

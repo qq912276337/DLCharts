@@ -32,9 +32,9 @@ DLCharts DLCharts DLCharts DLCharts DLCharts DLCharts
 
   s.source_files = 'DLCharts/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'DLCharts' => ['DLCharts/Assets/*.png']
-  # }
+   s.resource_bundles = {
+     'DLCharts' => ['DLCharts/Assets/*.png']
+   }
 
   s.public_header_files = 'DLCharts/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

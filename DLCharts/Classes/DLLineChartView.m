@@ -58,6 +58,16 @@
     [_chartView animateWithXAxisDuration:2];
 }
 
+//- (UIImage *)bundleImageWithName:(NSString *)imageName {
+//    NSString *bundleClassPath = [[NSBundle bundleForClass:[self class]] bundlePath];
+//    NSString *bundleName = [[bundleClassPath lastPathComponent] stringByDeletingPathExtension];
+//    NSString *bundleDirectory = [bundleName stringByAppendingString:@".bundle"];
+//    
+//    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:imageName ofType:@"" inDirectory:bundleDirectory];
+//    UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+//    return image;
+//}
+
 - (void)setItem:(DLBaseChartItem *)item {
     _item = item;
     

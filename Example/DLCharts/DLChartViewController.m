@@ -49,10 +49,11 @@
         pie.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);
         [self.view addSubview:pie];
     } else if (_type == DLChartsItemTypeLine) {
-        DLLineChartView *pie = [[DLLineChartView alloc] init];
-        pie.item = item;
-        pie.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);
-        [self.view addSubview:pie];
+        DLLineChartView *line = [[DLLineChartView alloc] init];
+        line.chartView.xAxis.labelPosition = XAxisLabelPositionTop;
+        line.item = item;
+        line.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);
+        [self.view addSubview:line];
     } else if (_type == DLChartsItemTypeColumnVertical) {
         DLVerticalBarChartView *verticalChart = [[DLVerticalBarChartView alloc] init];
 //        verticalChart.chartView.rightAxis.enabled = NO;

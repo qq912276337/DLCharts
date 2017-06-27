@@ -11,7 +11,9 @@
 typedef NS_ENUM (NSInteger,DLChartsItemType) {
     DLChartsItemTypePie = 1,
     DLChartsItemTypeLine,
-    DLChartsItemTypeColumn,
+    DLChartsItemTypeColumnVertical,
+    DLChartsItemTypeColumnHorizonal,
+    DLChartsItemTypeRadar
 };
 
 typedef void(^DLChartItemXAxisValueFormatterBlock)(id xAxis);

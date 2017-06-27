@@ -34,48 +34,6 @@ static NSString *const kCellID = @"DLViewController";
     [self.view addSubview:self.tableView];
     self.tableView.frame = self.view.bounds;
 
-
-//    DLBaseChartItem *item = [[DLBaseChartItem alloc] init];
-//    item.title = @"pie";
-//    item.names = @[@"66",@"80",@"10",@"66",@"48"];
-//    item.values = item.names;
-//    item.type = DLChartsItemTypeColumn;
-    
-//    __weak typeof(item) weakItem = item;
-//    item.xAxisValueFormatterBlock = ^(ChartXAxis *xAxis) {
-//        DLChartValueFormatter *format = [[DLChartValueFormatter alloc] init];
-//        format.names = weakItem.names;
-//        xAxis.valueFormatter = format;
-//
-//    };
-    
-    
-//    DLPieChartView *pie = [[DLPieChartView alloc] init];
-//    pie.item = pieItem;
-//    pie.frame = CGRectMake(100, 100, 200, 200);
-//    [self.view addSubview:pie];
-
-//    DLVerticalBarChartView *verticalChart = [[DLVerticalBarChartView alloc] init];
-//    verticalChart.verticalBarChartView.rightAxis.enabled = NO;
-//    verticalChart.item = pieItem;
-////    verticalChart.item = pieItem;
-//    verticalChart.frame = CGRectMake(100,400, 200, 200);
-//    [self.view addSubview:verticalChart];
-    
-//    DLHorizontalBarChartView *hori = [DLHorizontalBarChartView new];
-//    hori.item = item;
-//    hori.frame = CGRectMake(100,400, 200, 200);
-//    [self.view addSubview:hori];
-//    
-//    DLVerticalBarChartView *ver = [DLVerticalBarChartView new];
-//    ver.item = item;
-//    ver.frame = CGRectMake(100,100, 200, 200);
-//    [self.view addSubview:ver];
-    
-//    DLRadarChartView *radar = [[DLRadarChartView alloc] init];
-//    radar.item = item;
-//    radar.frame = self.view.bounds;
-//    [self.view addSubview:radar];
 }
 
 #pragma mark - UITableViewDataSource

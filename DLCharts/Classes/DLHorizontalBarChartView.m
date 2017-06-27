@@ -46,7 +46,6 @@
     xAxis.labelFont = [UIFont systemFontOfSize:10.f];
     xAxis.drawAxisLineEnabled = YES;
     xAxis.drawGridLinesEnabled = NO;
-    xAxis.granularity = 10.0;
     
     ChartYAxis *leftAxis = _chartView.leftAxis;
     leftAxis.labelFont = [UIFont systemFontOfSize:10.f];
@@ -106,17 +105,18 @@
     else
     {
         set1 = [[BarChartDataSet alloc] initWithValues:yVals label:item.title];
-        set1.drawValuesEnabled = YES;// 是否数值显示在柱形图
+        set1.drawValuesEnabled = YES;
         
         NSMutableArray *dataSets = [[NSMutableArray alloc] init];
         [dataSets addObject:set1];
         
         BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
         [data setValueFont:[UIFont systemFontOfSize:12]];
-        data.barWidth = 0.5f;
+        data.barWidth = 0.9f;
         
         _chartView.data = data;
     }
+
 }
 
 @end

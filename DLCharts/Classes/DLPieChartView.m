@@ -64,6 +64,12 @@
     [_chartView animateWithXAxisDuration:1.0f easingOption:ChartEasingOptionEaseOutExpo];
 }
 
+- (void)setLegendEnable:(BOOL)legendEnable {
+    _legendEnable = legendEnable;
+    
+    _chartView.legend.enabled = _legendEnable;
+}
+
 - (void)setItem:(DLBaseChartItem *)item {
     _item = item;
     
@@ -95,7 +101,7 @@
     [colors addObjectsFromArray:ChartColorTemplates.pastel];
     [colors addObject:[UIColor colorWithRed:51/255.f green:181/255.f blue:229/255.f alpha:1.f]];
     dataSet.colors = colors;//区块颜色
-    dataSet.sliceSpace = 0;//相邻区块之间的间距
+    dataSet.sliceSpace = 1;//相邻区块之间的间距
     dataSet.selectionShift = 8;//选中区块时, 放大的半径
     dataSet.xValuePosition = PieChartValuePositionInsideSlice;//名称位置
     dataSet.yValuePosition = PieChartValuePositionOutsideSlice;//数据位置
@@ -104,7 +110,7 @@
     dataSet.valueLinePart1Length = 0.5;//折线中第一段长度占比
     dataSet.valueLinePart2Length = 0.4;//折线中第二段长度最大占比
     dataSet.valueLineWidth = 1;//折线的粗细
-    dataSet.valueLineColor = [UIColor brownColor];//折线颜色
+    dataSet.valueLineColor = (_item.valueColor ? _item.valueColor : [UIColor brownColor]);//折线颜色
     
     //data
     PieChartData *data = [[PieChartData alloc] initWithDataSet:dataSet];
@@ -113,9 +119,8 @@
     formatter.maximumFractionDigits = 0;//小数位数
     formatter.multiplier = @1.f;
     [data setValueFormatter:[[ChartDefaultValueFormatter alloc] initWithFormatter:formatter]];//设置显示数据格式
-    [data setValueTextColor:[UIColor brownColor]];
-    [data setValueFont:[UIFont systemFontOfSize:10]];
-    
+    [data setValueFont:(_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12])];
+    [data setValueTextColor:(_item.valueColor ? _item.valueColor : [UIColor brownColor])];
     _chartView.data = data;
 }
 

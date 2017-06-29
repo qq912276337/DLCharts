@@ -68,6 +68,12 @@
 //    return image;
 //}
 
+- (void)setXAxisLabelPosition:(DLLineChartViewXAxisLabelPosition)xAxisLabelPosition {
+    _xAxisLabelPosition = xAxisLabelPosition;
+    
+    _chartView.xAxis.labelPosition = (int )_xAxisLabelPosition;
+}
+
 - (void)setItem:(DLBaseChartItem *)item {
     _item = item;
     
@@ -128,7 +134,8 @@
         [dataSets addObject:set1];
         
         LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
-        
+        [data setValueFont:(_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12])];
+        [data setValueTextColor:(_item.valueColor ? _item.valueColor : [UIColor blackColor])];
         _chartView.data = data;
     }
 }

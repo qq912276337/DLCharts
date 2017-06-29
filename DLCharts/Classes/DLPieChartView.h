@@ -15,4 +15,7 @@
 
 @property (nonatomic, strong,readonly) PieChartView *chartView;
 
+/** 是否显示图例 默认显示 */
+@property (nonatomic, assign) BOOL legendEnable;
+
 @end

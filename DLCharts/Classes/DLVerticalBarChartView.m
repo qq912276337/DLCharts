@@ -69,6 +69,20 @@
     [_chartView animateWithYAxisDuration:2];
 }
 
+#pragma mark - Setter or Getter
+
+- (void)setRightYAxisEnalbe:(BOOL)rightYAxisEnalbe {
+    _rightYAxisEnalbe = rightYAxisEnalbe;
+    
+    _chartView.rightAxis.enabled = _rightYAxisEnalbe;
+}
+
+- (void)setLegendEnable:(BOOL)legendEnable {
+    _legendEnable = legendEnable;
+    
+    _chartView.legend.enabled = _legendEnable;
+}
+
 - (void)setItem:(DLBaseChartItem *)item {
     _item = item;
     
@@ -109,9 +123,9 @@
         [dataSets addObject:set1];
         
         BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
-        [data setValueFont:[UIFont systemFontOfSize:12]];
         data.barWidth = 0.9f;
-        
+        [data setValueFont:(_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12])];
+        [data setValueTextColor:(_item.valueColor ? _item.valueColor : [UIColor darkGrayColor])];
         _chartView.data = data;
     }
 }

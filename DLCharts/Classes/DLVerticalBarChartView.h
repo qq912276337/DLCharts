@@ -14,5 +14,10 @@
 @property (nonatomic, strong) DLBaseChartItem *item;
 
 @property (nonatomic, strong,readonly) BarChartView *chartView;
+/** 是否显示图例 默认显示 */
+@property (nonatomic, assign) BOOL legendEnable;
+/** 是否显示y右轴 默认显示 */
+@property (nonatomic, assign) BOOL rightYAxisEnalbe;
+
 
 @end

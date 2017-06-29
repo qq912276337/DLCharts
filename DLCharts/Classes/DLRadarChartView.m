@@ -90,10 +90,9 @@
     [set2 setDrawHighlightIndicators:NO];
     
     RadarChartData *data = [[RadarChartData alloc] initWithDataSets:@[set2]];
-    [data setValueFont:[UIFont systemFontOfSize:12]];
     [data setDrawValues:YES];
-    data.valueTextColor = UIColor.darkGrayColor;
-    
+    [data setValueFont:(_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12])];
+    [data setValueTextColor:(_item.valueColor ? _item.valueColor : [UIColor darkGrayColor])];
     _chartView.data = data;
 }
 

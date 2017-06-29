@@ -33,14 +33,13 @@
     DLBaseChartItem *item = [[DLBaseChartItem alloc] init];
     item.title = @"chart";
     item.names = @[@"a",@"b",@"c",@"d",@"e"];
-    item.values = @[@"66",@"80",@"10",@"66",@"48"];
+    item.values = @[@"0",@"80",@"10",@"66",@"48"];
     
     __weak typeof(item) weakItem = item;
     item.xAxisValueFormatterBlock = ^(ChartXAxis *xAxis) {
         DLChartValueFormatter *format = [[DLChartValueFormatter alloc] init];
         format.names = weakItem.names;
         xAxis.valueFormatter = format;
-        
     };
     
     if (_type == DLChartsItemTypePie) {
@@ -56,12 +55,14 @@
         [self.view addSubview:line];
     } else if (_type == DLChartsItemTypeColumnVertical) {
         DLVerticalBarChartView *verticalChart = [[DLVerticalBarChartView alloc] init];
-//        verticalChart.chartView.rightAxis.enabled = NO;
+        verticalChart.rightYAxisEnalbe = NO;
         verticalChart.item = item;
         verticalChart.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);
         [self.view addSubview:verticalChart];
     } else if (_type == DLChartsItemTypeColumnHorizonal) {
         DLHorizontalBarChartView *pie = [[DLHorizontalBarChartView alloc] init];
+        pie.legendEnable = NO;
+        pie.rightYAxisEnalbe = NO;
         pie.item = item;
         pie.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);
         [self.view addSubview:pie];

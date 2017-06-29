@@ -6,24 +6,17 @@ PODS:
     - Charts
 
 DEPENDENCIES:
-  - Charts (from `https://github.com/danielgindi/Charts.git`)
+  - Charts
   - DLCharts (from `../`)
 
 EXTERNAL SOURCES:
-  Charts:
-    :git: https://github.com/danielgindi/Charts.git
   DLCharts:
     :path: ../
 
-CHECKOUT OPTIONS:
-  Charts:
-    :commit: 6698fd3e2eb328dbaf99460bd50a77dfa8da32ee
-    :git: https://github.com/danielgindi/Charts.git
-
 SPEC CHECKSUMS:
-  Charts: e955b9a241a14a8971d70143002c8ab1610d26b6
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   DLCharts: eef699f98f199882c1a85cda404cbf7b03679167
 
-PODFILE CHECKSUM: e88bc3a9049033f438f73b1c27eb44499eb40b70
+PODFILE CHECKSUM: ad271507589d8a327b9dab8893e615f5aa3bf24a
 
 COCOAPODS: 1.2.1

@@ -23,7 +23,7 @@ typedef void(^DLChartItemXAxisValueFormatterBlock)(ChartXAxis *xAxis,NSUInteger 
 /**
  * X轴值映射回调
  * param xAxis ChartXAxis
- * param spaceBetweenX x间距 默认=1
+ * param spaceBetweenX x间距
  */
 @property (nonatomic, copy) DLChartItemXAxisValueFormatterBlock xAxisValueFormatterBlock;
 

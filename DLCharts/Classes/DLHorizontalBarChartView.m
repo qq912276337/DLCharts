@@ -19,7 +19,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _spaceForX = 10;
+        _spaceBetweenX = 10;
         [self setupView];
     }
     return self;
@@ -47,7 +47,7 @@
     xAxis.labelFont = [UIFont systemFontOfSize:10.f];
     xAxis.drawAxisLineEnabled = YES;
     xAxis.drawGridLinesEnabled = NO;
-    xAxis.granularity = _spaceForX;
+    xAxis.granularity = _spaceBetweenX;
     
     ChartYAxis *leftAxis = _chartView.leftAxis;
     leftAxis.labelFont = [UIFont systemFontOfSize:10.f];
@@ -112,7 +112,7 @@
     if (item.values.count <= 0) return ;
     
     if (self.xAxisValueFormatterBlock) {
-        self.xAxisValueFormatterBlock(_chartView.xAxis,_spaceForX);
+        self.xAxisValueFormatterBlock(_chartView.xAxis,_spaceBetweenX);
     }
     
     NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.values.count];
@@ -120,7 +120,7 @@
     for (int i = 0; i < item.values.count; i++)
     {
         double y = [item.values[i] floatValue];
-        [yVals addObject:[[BarChartDataEntry alloc] initWithX:i * _spaceForX y:y]];
+        [yVals addObject:[[BarChartDataEntry alloc] initWithX:i * _spaceBetweenX y:y]];
         if (y < minY) {
             minY = y;
         }
@@ -147,7 +147,7 @@
         BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
         [data setValueFont:(self.yValueFont ? self.yValueFont : [UIFont systemFontOfSize:12])];
         [data setValueTextColor:(self.yValueColor ? self.yValueColor : [UIColor blackColor])];
-        data.barWidth = _spaceForX - 1;
+        data.barWidth = _spaceBetweenX - 1;
         
         _chartView.data = data;
     }

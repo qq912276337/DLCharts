@@ -2,7 +2,7 @@ PODS:
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
-  - DLCharts (0.1.3):
+  - DLCharts (0.1.4):
     - Charts
 
 DEPENDENCIES:
@@ -15,8 +15,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
-  DLCharts: eef699f98f199882c1a85cda404cbf7b03679167
+  DLCharts: efccfb97f56cb8dfbd7dc668ed273a6d6b63c4f4
 
-PODFILE CHECKSUM: ad271507589d8a327b9dab8893e615f5aa3bf24a
+PODFILE CHECKSUM: 07970142768b749ce597dbc5798a849fc9c21124
 
 COCOAPODS: 1.2.1

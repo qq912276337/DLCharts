@@ -4,5 +4,4 @@ target 'DLCharts_Example' do
     pod 'DLCharts', :path => '../'
 #  pod 'DLCharts', :podspec => '../DLCharts.podspec'  # 指定podspec文件
    pod 'Charts'
-
 end

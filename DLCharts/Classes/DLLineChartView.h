@@ -22,9 +22,11 @@ typedef NS_ENUM (NSInteger,DLLineChartViewXAxisLabelPosition) {
 @property (nonatomic, strong) DLBaseChartItem *item;
 
 @property (nonatomic, strong,readonly) LineChartView *chartView;
-
 /** X轴位置 默认在底部*/
 @property (nonatomic, assign) DLLineChartViewXAxisLabelPosition xAxisLabelPosition;
-
+/** 折线颜色 */
+@property (nonatomic, strong) UIColor *lineColor;
+/** 是否显示图例 默认显示 */
+@property (nonatomic, assign) BOOL legendEnable;
 
 @end

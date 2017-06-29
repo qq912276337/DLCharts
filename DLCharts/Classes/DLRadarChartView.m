@@ -34,8 +34,8 @@
     _chartView.chartDescription.enabled = NO;
     _chartView.webLineWidth = 1.0;
     _chartView.innerWebLineWidth = 1.0;
-    _chartView.webColor = UIColor.lightGrayColor;
-    _chartView.innerWebColor = UIColor.lightGrayColor;
+    _chartView.webColor = _netColor ? _netColor : UIColor.lightGrayColor;
+    _chartView.innerWebColor = _netColor ? _netColor : UIColor.lightGrayColor;
     _chartView.webAlpha = 1.0;
     [self addSubview:_chartView];
     
@@ -47,7 +47,8 @@
     xAxis.labelTextColor = UIColor.darkGrayColor;
     
     ChartYAxis *yAxis = _chartView.yAxis;
-    yAxis.labelFont = [UIFont systemFontOfSize:12];
+    yAxis.labelTextColor = _item.valueColor ? _item.valueColor : [UIColor blackColor];
+    yAxis.labelFont = _item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12];
     yAxis.labelCount = 5;
     yAxis.axisMinimum = 0.0;
     yAxis.axisMaximum = 80.0;
@@ -81,8 +82,8 @@
     }
     
     RadarChartDataSet *set2 = [[RadarChartDataSet alloc] initWithValues:entries2 label:item.title];
-    [set2 setColor:[UIColor colorWithRed:121/255.0 green:162/255.0 blue:175/255.0 alpha:1.0]];
-    set2.fillColor = [UIColor colorWithRed:121/255.0 green:162/255.0 blue:175/255.0 alpha:1.0];
+    [set2 setColor:(_areaLineColor ? _areaLineColor : [UIColor colorWithRed:121/255.0 green:162/255.0 blue:175/255.0 alpha:1.0])];
+    set2.fillColor = (_areaFillColor ? _areaFillColor : [UIColor colorWithRed:121/255.0 green:162/255.0 blue:175/255.0 alpha:1.0]);
     set2.drawFilledEnabled = YES;
     set2.fillAlpha = 0.7;
     set2.lineWidth = 2.0;

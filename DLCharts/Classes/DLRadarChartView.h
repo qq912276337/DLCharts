@@ -15,4 +15,10 @@
 
 @property (nonatomic, strong,readonly) RadarChartView *chartView;
 
+@property (nonatomic, strong) UIColor *areaLineColor;
+
+@property (nonatomic, strong) UIColor *areaFillColor;
+
+@property (nonatomic, strong) UIColor *netColor;
+
 @end

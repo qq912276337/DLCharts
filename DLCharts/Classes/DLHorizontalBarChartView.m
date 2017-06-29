@@ -46,6 +46,7 @@
     xAxis.labelFont = [UIFont systemFontOfSize:10.f];
     xAxis.drawAxisLineEnabled = YES;
     xAxis.drawGridLinesEnabled = NO;
+    xAxis.labelCount = _item.names.count;
     
     ChartYAxis *leftAxis = _chartView.leftAxis;
     leftAxis.labelFont = [UIFont systemFontOfSize:10.f];
@@ -69,6 +70,16 @@
     l.formSize = 8.0;
     l.font = [UIFont systemFontOfSize:11];
     l.xEntrySpace = 4.0;
+    
+    _chartView.descriptionText = @"";
+    _chartView.drawBarShadowEnabled = NO;
+    _chartView.drawValueAboveBarEnabled = YES;
+    
+    _chartView.maxVisibleCount = 60;
+    _chartView.pinchZoomEnabled = YES;
+    _chartView.drawGridBackgroundEnabled = NO;
+    _chartView.doubleTapToZoomEnabled = YES;
+    _chartView.legend.enabled = NO;
     
     _chartView.fitBars = YES;
     [_chartView animateWithYAxisDuration:2];
@@ -104,10 +115,17 @@
     }
     
     NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.values.count];
+    CGFloat minY = 0.0; // 解决柱状y值不显示
     for (int i = 0; i < item.values.count; i++)
     {
-        [yVals addObject:[[BarChartDataEntry alloc] initWithX:i y:[item.values[i] floatValue]]];
+        double y = [item.values[i] floatValue];
+        [yVals addObject:[[BarChartDataEntry alloc] initWithX:i y:y]];
+        if (y < minY) {
+            minY = y;
+        }
     }
+    _chartView.leftAxis.axisMinimum = minY;
+    _chartView.rightAxis.axisMinimum = minY;
     
     BarChartDataSet *set1 = nil;
     if (_chartView.data.dataSetCount > 0)

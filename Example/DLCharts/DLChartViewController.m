@@ -32,8 +32,8 @@
     
     DLBaseChartItem *item = [[DLBaseChartItem alloc] init];
     item.title = @"chart";
-    item.names = @[@"a",@"b",@"c",@"d",@"e"];
-    item.values = @[@"0",@"80",@"10",@"66",@"48"];
+    item.names = @[@"a",@"b"];
+    item.values = @[@"48",@"5"];
     
     __weak typeof(item) weakItem = item;
     item.xAxisValueFormatterBlock = ^(ChartXAxis *xAxis) {
@@ -49,8 +49,11 @@
         [self.view addSubview:pie];
     } else if (_type == DLChartsItemTypeLine) {
         DLLineChartView *line = [[DLLineChartView alloc] init];
-        line.chartView.xAxis.labelPosition = XAxisLabelPositionTop;
+        line.lineColor = [UIColor blueColor];
+        line.xAxisLabelPosition = DLLineChartViewXAxisLabelPositionBottom;
+        line.legendEnable = NO;
         line.item = item;
+        
         line.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);
         [self.view addSubview:line];
     } else if (_type == DLChartsItemTypeColumnVertical) {

@@ -68,6 +68,14 @@
 //    return image;
 //}
 
+#pragma mark - Setter and Getter
+
+- (void)setLegendEnable:(BOOL)legendEnable {
+    _legendEnable = legendEnable;
+    
+    _chartView.legend.enabled = _legendEnable;
+}
+
 - (void)setXAxisLabelPosition:(DLLineChartViewXAxisLabelPosition)xAxisLabelPosition {
     _xAxisLabelPosition = xAxisLabelPosition;
     
@@ -106,29 +114,34 @@
     else
     {
         set1 = [[LineChartDataSet alloc] initWithValues:values label:item.title];
-        set1.lineDashLengths = @[@5.f, @2.5f];
-        set1.highlightLineDashLengths = @[@5.f, @2.5f];
-        [set1 setColor:UIColor.blackColor];
-        [set1 setCircleColor:UIColor.blackColor];
         set1.lineWidth = 1.0;
         set1.circleRadius = 3.0;
         set1.drawCircleHoleEnabled = NO;
-        set1.valueFont = [UIFont systemFontOfSize:9.f];
-        set1.formLineDashLengths = @[@5.f, @2.5f];
-        set1.formLineWidth = 1.0;
-        set1.formSize = 15.0;
+        set1.valueFont = (_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12.f]);
+        //        set1.lineDashLengths = @[@5.f, @2.5f];
+        //        set1.highlightLineDashLengths = @[@5.f, @2.5f];
+        //        [set1 setColor:UIColor.blackColor];
+        //        [set1 setCircleColor:UIColor.blackColor];
+        //        set1.formLineDashLengths = @[@5.f, @2.5f];
+        //        set1.formLineWidth = 1.0;
+        //        set1.formSize = 15.0;
         
-        NSArray *gradientColors = @[
-                                    (id)[ChartColorTemplates colorFromString:@"#00ff0000"].CGColor,
-                                    (id)[ChartColorTemplates colorFromString:@"#ffff0000"].CGColor
-                                    ];
-        CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
+        //        NSArray *gradientColors = @[
+        //                                    (id)[ChartColorTemplates colorFromString:@"#00ff0000"].CGColor,
+        //                                    (id)[ChartColorTemplates colorFromString:@"#ffff0000"].CGColor
+        //                                    ];
+        //        CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
+        //
+        //        set1.fillAlpha = 1.f;
+        //        set1.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
+        //        set1.drawFilledEnabled = YES;
         
-        set1.fillAlpha = 1.f;
-        set1.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
-        set1.drawFilledEnabled = YES;
+        //        CGGradientRelease(gradient);
         
-        CGGradientRelease(gradient);
+        if (_lineColor) {
+            [set1 setColor:_lineColor];
+            [set1 setCircleColor:_lineColor];
+        }
         
         NSMutableArray *dataSets = [[NSMutableArray alloc] init];
         [dataSets addObject:set1];

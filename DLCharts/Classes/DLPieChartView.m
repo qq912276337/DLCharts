@@ -8,7 +8,7 @@
 
 #import "DLPieChartView.h"
 #import <Charts/Charts-Swift.h>
-#import "DLBaseChartItem.h"
+#import "DLChartConfigureItem.h"
 
 @interface DLPieChartView ()
 
@@ -70,13 +70,13 @@
     _chartView.legend.enabled = _legendEnable;
 }
 
-- (void)setItem:(DLBaseChartItem *)item {
+- (void)setItem:(DLChartConfigureItem *)item {
     _item = item;
     
     [self setupPieChartViewDataWithItem:_item];
 }
 
-- (void )setupPieChartViewDataWithItem:(DLBaseChartItem *)item{
+- (void )setupPieChartViewDataWithItem:(DLChartConfigureItem *)item{
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return;
     

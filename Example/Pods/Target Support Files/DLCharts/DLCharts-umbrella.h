@@ -10,7 +10,7 @@
 #endif
 #endif
 
-#import "DLBaseChartItem.h"
+#import "DLChartConfigureItem.h"
 #import "DLChartsHeader.h"
 #import "DLHorizontalBarChartView.h"
 #import "DLLineChartView.h"

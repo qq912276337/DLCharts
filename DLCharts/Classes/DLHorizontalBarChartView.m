@@ -8,7 +8,7 @@
 
 #import "DLHorizontalBarChartView.h"
 #import <Charts/Charts-Swift.h>
-#import "DLBaseChartItem.h"
+#import "DLChartConfigureItem.h"
 
 @interface DLHorizontalBarChartView ()
 
@@ -100,13 +100,13 @@
 }
 
 
-- (void)setItem:(DLBaseChartItem *)item {
+- (void)setItem:(DLChartConfigureItem *)item {
     _item = item;
     
     [self setupChartviewDatawithItem:_item];
 }
 
-- (void)setupChartviewDatawithItem:(DLBaseChartItem *)item {
+- (void)setupChartviewDatawithItem:(DLChartConfigureItem *)item {
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return ;
     

@@ -30,10 +30,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    DLBaseChartItem *item = [[DLBaseChartItem alloc] init];
+    DLChartConfigureItem *item = [[DLChartConfigureItem alloc] init];
     item.title = @"chart";
-    item.names = @[@"a",@"b"];
-    item.values = @[@"48",@"5"];
+    item.names = @[@"a",@"b",@"c",@"d",@"e"];
+    item.values = @[@"0",@"80",@"10",@"66",@"48"];
     
     __weak typeof(item) weakItem = item;
     item.xAxisValueFormatterBlock = ^(ChartXAxis *xAxis) {

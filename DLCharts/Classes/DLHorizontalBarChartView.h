@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DLBaseChartItem,HorizontalBarChartView;
+@class DLChartConfigureItem,HorizontalBarChartView;
 
 @interface DLHorizontalBarChartView : UIView
 
-@property (nonatomic, strong) DLBaseChartItem *item;
+@property (nonatomic, strong) DLChartConfigureItem *item;
 
 @property (nonatomic, strong,readonly) HorizontalBarChartView *chartView;
 /** 是否显示图例 默认显示 */

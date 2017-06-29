@@ -18,7 +18,7 @@ typedef NS_ENUM (NSInteger,DLChartsItemType) {
 
 typedef void(^DLChartItemXAxisValueFormatterBlock)(id xAxis);
 
-@interface DLBaseChartItem : NSObject
+@interface DLChartConfigureItem : NSObject
 
 @property (nonatomic, assign) NSString *title;
 

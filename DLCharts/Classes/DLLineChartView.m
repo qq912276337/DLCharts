@@ -7,7 +7,7 @@
 //
 
 #import "DLLineChartView.h"
-#import "DLBaseChartItem.h"
+#import "DLChartConfigureItem.h"
 #import <Charts/Charts-Swift.h>
 
 @interface DLLineChartView ()
@@ -82,13 +82,13 @@
     _chartView.xAxis.labelPosition = (int )_xAxisLabelPosition;
 }
 
-- (void)setItem:(DLBaseChartItem *)item {
+- (void)setItem:(DLChartConfigureItem *)item {
     _item = item;
     
     [self setupLineChartViewDataWithItem:_item];
 }
 
-- (void)setupLineChartViewDataWithItem:(DLBaseChartItem *)item
+- (void)setupLineChartViewDataWithItem:(DLChartConfigureItem *)item
 {
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return ;

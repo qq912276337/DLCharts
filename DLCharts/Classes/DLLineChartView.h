@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DLBaseChartItem,LineChartView;
+@class DLChartConfigureItem,LineChartView;
 
 typedef NS_ENUM (NSInteger,DLLineChartViewXAxisLabelPosition) {
     DLLineChartViewXAxisLabelPositionTop = 0,
@@ -19,7 +19,7 @@ typedef NS_ENUM (NSInteger,DLLineChartViewXAxisLabelPosition) {
 
 @interface DLLineChartView : UIView
 
-@property (nonatomic, strong) DLBaseChartItem *item;
+@property (nonatomic, strong) DLChartConfigureItem *item;
 
 @property (nonatomic, strong,readonly) LineChartView *chartView;
 /** X轴位置 默认在底部*/

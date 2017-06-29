@@ -9,7 +9,7 @@
 #ifndef DLChartsHeader_h
 #define DLChartsHeader_h
 
-#import "DLBaseChartItem.h"
+#import "DLChartConfigureItem.h"
 
 #import "DLRadarChartView.h"
 #import "DLVerticalBarChartView.h"

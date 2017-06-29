@@ -7,7 +7,7 @@
 //
 
 #import "DLVerticalBarChartView.h"
-#import "DLBaseChartItem.h"
+#import "DLChartConfigureItem.h"
 #import <Charts/Charts-Swift.h>
 
 @interface DLVerticalBarChartView ()
@@ -83,13 +83,13 @@
     _chartView.legend.enabled = _legendEnable;
 }
 
-- (void)setItem:(DLBaseChartItem *)item {
+- (void)setItem:(DLChartConfigureItem *)item {
     _item = item;
     
     [self setupVerticalBarChartViewDataWithItem:_item];
 }
 
-- (void)setupVerticalBarChartViewDataWithItem:(DLBaseChartItem *)item {
+- (void)setupVerticalBarChartViewDataWithItem:(DLChartConfigureItem *)item {
     
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return ;

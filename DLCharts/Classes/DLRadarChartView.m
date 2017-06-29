@@ -7,7 +7,7 @@
 //
 
 #import "DLRadarChartView.h"
-#import "DLBaseChartItem.h"
+#import "DLChartConfigureItem.h"
 #import <Charts/Charts-Swift.h>
 
 @interface DLRadarChartView ()<IChartAxisValueFormatter>
@@ -67,13 +67,13 @@
     [_chartView animateWithXAxisDuration:1.4 yAxisDuration:1.4 easingOption:ChartEasingOptionEaseOutBack];
 }
 
-- (void)setItem:(DLBaseChartItem *)item {
+- (void)setItem:(DLChartConfigureItem *)item {
     _item = item;
     
     [self setupViewDataWithItem:_item];
 }
 
-- (void)setupViewDataWithItem:(DLBaseChartItem *)item {
+- (void)setupViewDataWithItem:(DLChartConfigureItem *)item {
     NSMutableArray *entries2 = [NSMutableArray arrayWithCapacity:item.values.count];
     
     for (int i = 0; i < item.values.count; i++)

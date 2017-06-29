@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DLBaseChartItem,PieChartView;
+@class DLChartConfigureItem,PieChartView;
 
 @interface DLPieChartView : UIView
 
-@property (nonatomic, strong) DLBaseChartItem *item;
+@property (nonatomic, strong) DLChartConfigureItem *item;
 
 @property (nonatomic, strong,readonly) PieChartView *chartView;
 

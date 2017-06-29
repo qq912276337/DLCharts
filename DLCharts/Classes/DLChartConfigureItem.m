@@ -6,8 +6,8 @@
 //  Copyright © 2017年 qq912276337. All rights reserved.
 //
 
-#import "DLBaseChartItem.h"
+#import "DLChartConfigureItem.h"
 
-@implementation DLBaseChartItem
+@implementation DLChartConfigureItem
 
 @end

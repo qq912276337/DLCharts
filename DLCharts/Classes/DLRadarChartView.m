@@ -47,8 +47,8 @@
     xAxis.labelTextColor = UIColor.darkGrayColor;
     
     ChartYAxis *yAxis = _chartView.yAxis;
-    yAxis.labelTextColor = _item.valueColor ? _item.valueColor : [UIColor blackColor];
-    yAxis.labelFont = _item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12];
+    yAxis.labelTextColor = self.yValueColor ? self.yValueColor : [UIColor blackColor];
+    yAxis.labelFont = self.yValueFont ? self.yValueFont : [UIFont systemFontOfSize:12];
     yAxis.labelCount = 5;
     yAxis.axisMinimum = 0.0;
     yAxis.axisMaximum = 80.0;
@@ -70,7 +70,7 @@
 - (void)setItem:(DLChartConfigureItem *)item {
     _item = item;
     
-    [self setupViewDataWithItem:_item];
+    [self setupViewDataWithItem:item];
 }
 
 - (void)setupViewDataWithItem:(DLChartConfigureItem *)item {
@@ -92,13 +92,13 @@
     
     RadarChartData *data = [[RadarChartData alloc] initWithDataSets:@[set2]];
     [data setDrawValues:YES];
-    [data setValueFont:(_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12])];
-    [data setValueTextColor:(_item.valueColor ? _item.valueColor : [UIColor darkGrayColor])];
+    [data setValueFont:(self.yValueFont ? self.yValueFont : [UIFont systemFontOfSize:12])];
+    [data setValueTextColor:(self.yValueColor ? self.yValueColor : [UIColor darkGrayColor])];
     _chartView.data = data;
 }
 
 - (NSString *)stringForValue:(double)value axis:(ChartAxisBase *)axis {
-    return _item.names[(int )(value)];
+    return self.item.names[(int )(value)];
 }
 
 @end

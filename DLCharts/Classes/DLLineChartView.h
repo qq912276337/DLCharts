@@ -6,8 +6,9 @@
 //  Copyright © 2017年 qq912276337. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-@class DLChartConfigureItem,LineChartView;
+
+#import "DLChartBaseView.h"
+@class LineChartView;
 
 typedef NS_ENUM (NSInteger,DLLineChartViewXAxisLabelPosition) {
     DLLineChartViewXAxisLabelPositionTop = 0,
@@ -17,11 +18,12 @@ typedef NS_ENUM (NSInteger,DLLineChartViewXAxisLabelPosition) {
     DLLineChartViewXAxisLabelPositionBottomInside = 4,
 };
 
-@interface DLLineChartView : UIView
+@interface DLLineChartView : DLChartBaseView
+
+@property (nonatomic, strong,readonly) LineChartView *chartView;
 
 @property (nonatomic, strong) DLChartConfigureItem *item;
 
-@property (nonatomic, strong,readonly) LineChartView *chartView;
 /** X轴位置 默认在底部*/
 @property (nonatomic, assign) DLLineChartViewXAxisLabelPosition xAxisLabelPosition;
 /** 折线颜色 */

@@ -6,17 +6,19 @@
 //
 //
 
-#import <UIKit/UIKit.h>
-@class DLChartConfigureItem,HorizontalBarChartView;
+#import "DLChartBaseView.h"
+@class HorizontalBarChartView;
 
-@interface DLHorizontalBarChartView : UIView
+@interface DLHorizontalBarChartView : DLChartBaseView
 
 @property (nonatomic, strong) DLChartConfigureItem *item;
 
 @property (nonatomic, strong,readonly) HorizontalBarChartView *chartView;
-/** 是否显示图例 默认显示 */
-@property (nonatomic, assign) BOOL legendEnable;
+
+@property (nonatomic, assign) NSUInteger spaceForX;
 /** 是否显示y右轴 默认显示 */
 @property (nonatomic, assign) BOOL rightYAxisEnalbe;
+/** 是否显示图例 默认显示 */
+@property (nonatomic, assign) BOOL legendEnable;
 
 @end

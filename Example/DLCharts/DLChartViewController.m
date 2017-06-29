@@ -32,15 +32,15 @@
     
     DLChartConfigureItem *item = [[DLChartConfigureItem alloc] init];
     item.title = @"chart";
-    item.names = @[@"a",@"b",@"c",@"d",@"e"];
-    item.values = @[@"0",@"80",@"10",@"66",@"48"];
+    item.names = @[@"qqqqqqa",@"qqqqb"];
+    item.values = @[@"10",@"80"];
     
     __weak typeof(item) weakItem = item;
-    item.xAxisValueFormatterBlock = ^(ChartXAxis *xAxis) {
-        DLChartValueFormatter *format = [[DLChartValueFormatter alloc] init];
-        format.names = weakItem.names;
-        xAxis.valueFormatter = format;
-    };
+//    item.xAxisValueFormatterBlock = ^(ChartXAxis *xAxis) {
+//        DLChartValueFormatter *format = [[DLChartValueFormatter alloc] init];
+//        format.names = weakItem.names;
+//        xAxis.valueFormatter = format;
+//    };
     
     if (_type == DLChartsItemTypePie) {
         DLPieChartView *pie = [[DLPieChartView alloc] init];
@@ -66,6 +66,12 @@
         DLHorizontalBarChartView *pie = [[DLHorizontalBarChartView alloc] init];
         pie.legendEnable = NO;
         pie.rightYAxisEnalbe = NO;
+        pie.xAxisValueFormatterBlock = ^(ChartXAxis *xAxis, NSUInteger spaceBetweenX) {
+            DLChartValueFormatter *format = [[DLChartValueFormatter alloc] init];
+            format.names = weakItem.names;
+            format.spaceForX = spaceBetweenX;
+            xAxis.valueFormatter = format;
+        };
         pie.item = item;
         pie.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);
         [self.view addSubview:pie];

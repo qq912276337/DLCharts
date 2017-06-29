@@ -19,6 +19,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        _spaceForX = 10;
         [self setupView];
     }
     return self;
@@ -46,7 +47,7 @@
     xAxis.labelFont = [UIFont systemFontOfSize:10.f];
     xAxis.drawAxisLineEnabled = YES;
     xAxis.drawGridLinesEnabled = NO;
-    xAxis.labelCount = _item.names.count;
+    xAxis.granularity = _spaceForX;
     
     ChartYAxis *leftAxis = _chartView.leftAxis;
     leftAxis.labelFont = [UIFont systemFontOfSize:10.f];
@@ -96,22 +97,22 @@
 - (void)setLegendEnable:(BOOL)legendEnable {
     _legendEnable = legendEnable;
     
-    _chartView.legend.enabled = _legendEnable;
+    _chartView.legend.enabled = legendEnable;
 }
 
 
 - (void)setItem:(DLChartConfigureItem *)item {
     _item = item;
     
-    [self setupChartviewDatawithItem:_item];
+    [self setupChartViewDatawithItem:_item];
 }
 
-- (void)setupChartviewDatawithItem:(DLChartConfigureItem *)item {
+- (void)setupChartViewDatawithItem:(DLChartConfigureItem *)item {
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return ;
     
-    if (_item.xAxisValueFormatterBlock) {
-        _item.xAxisValueFormatterBlock(_chartView.xAxis);
+    if (self.xAxisValueFormatterBlock) {
+        self.xAxisValueFormatterBlock(_chartView.xAxis,_spaceForX);
     }
     
     NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.values.count];
@@ -119,7 +120,7 @@
     for (int i = 0; i < item.values.count; i++)
     {
         double y = [item.values[i] floatValue];
-        [yVals addObject:[[BarChartDataEntry alloc] initWithX:i y:y]];
+        [yVals addObject:[[BarChartDataEntry alloc] initWithX:i * _spaceForX y:y]];
         if (y < minY) {
             minY = y;
         }
@@ -144,9 +145,9 @@
         [dataSets addObject:set1];
         
         BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
-        [data setValueFont:(_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12])];
-        [data setValueTextColor:(_item.valueColor ? _item.valueColor : [UIColor blackColor])];
-        data.barWidth = 0.9f;
+        [data setValueFont:(self.yValueFont ? self.yValueFont : [UIFont systemFontOfSize:12])];
+        [data setValueTextColor:(self.yValueColor ? self.yValueColor : [UIColor blackColor])];
+        data.barWidth = _spaceForX - 1;
         
         _chartView.data = data;
     }

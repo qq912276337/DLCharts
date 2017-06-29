@@ -16,8 +16,6 @@ typedef NS_ENUM (NSInteger,DLChartsItemType) {
     DLChartsItemTypeRadar
 };
 
-typedef void(^DLChartItemXAxisValueFormatterBlock)(id xAxis);
-
 @interface DLChartConfigureItem : NSObject
 
 @property (nonatomic, assign) NSString *title;
@@ -27,12 +25,6 @@ typedef void(^DLChartItemXAxisValueFormatterBlock)(id xAxis);
 @property (nonatomic, strong) NSArray<NSString *> *names;
 
 @property (nonatomic, strong) NSArray<NSString *> *values;
-
-@property (nonatomic, strong) UIColor *valueColor;
-
-@property (nonatomic, strong) UIFont *valueFont;
-// X轴映射回调
-@property (nonatomic, copy) DLChartItemXAxisValueFormatterBlock xAxisValueFormatterBlock;
 
 
 @end

@@ -6,10 +6,11 @@
 //
 //
 
-#import <UIKit/UIKit.h>
-@class DLChartConfigureItem,RadarChartView;
 
-@interface DLRadarChartView : UIView
+#import "DLChartBaseView.h"
+@class RadarChartView;
+
+@interface DLRadarChartView : DLChartBaseView
 
 @property (nonatomic, strong) DLChartConfigureItem *item;
 

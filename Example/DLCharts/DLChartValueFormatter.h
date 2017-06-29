@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) NSArray<NSString *> *names;
 
+@property (nonatomic, assign) NSUInteger spaceForX;
+
 @end

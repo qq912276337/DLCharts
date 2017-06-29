@@ -11,7 +11,8 @@
 @implementation DLChartValueFormatter
 
 - (NSString * _Nonnull)stringForValue:(double)value axis:(ChartAxisBase * _Nullable)axis {
-    return (_names[(int )value]);
+    NSUInteger num = (int )value / _spaceForX;
+    return (_names[num]);
 }
 
 @end

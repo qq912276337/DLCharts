@@ -73,8 +73,9 @@
 - (void)setLegendEnable:(BOOL)legendEnable {
     _legendEnable = legendEnable;
     
-    _chartView.legend.enabled = _legendEnable;
+    _chartView.legend.enabled = legendEnable;
 }
+
 
 - (void)setXAxisLabelPosition:(DLLineChartViewXAxisLabelPosition)xAxisLabelPosition {
     _xAxisLabelPosition = xAxisLabelPosition;
@@ -85,7 +86,7 @@
 - (void)setItem:(DLChartConfigureItem *)item {
     _item = item;
     
-    [self setupLineChartViewDataWithItem:_item];
+    [self setupLineChartViewDataWithItem:self.item];
 }
 
 - (void)setupLineChartViewDataWithItem:(DLChartConfigureItem *)item
@@ -93,8 +94,8 @@
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return ;
     
-    if (_item.xAxisValueFormatterBlock) {
-        _item.xAxisValueFormatterBlock(_chartView.xAxis);
+    if (self.xAxisValueFormatterBlock) {
+        self.xAxisValueFormatterBlock(_chartView.xAxis,1);
     }
     
     NSMutableArray *values = [NSMutableArray arrayWithCapacity:item.names.count];
@@ -117,7 +118,7 @@
         set1.lineWidth = 1.0;
         set1.circleRadius = 3.0;
         set1.drawCircleHoleEnabled = NO;
-        set1.valueFont = (_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12.f]);
+        set1.valueFont = (self.yValueFont ? self.yValueFont : [UIFont systemFontOfSize:12.f]);
         //        set1.lineDashLengths = @[@5.f, @2.5f];
         //        set1.highlightLineDashLengths = @[@5.f, @2.5f];
         //        [set1 setColor:UIColor.blackColor];
@@ -147,8 +148,8 @@
         [dataSets addObject:set1];
         
         LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
-        [data setValueFont:(_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12])];
-        [data setValueTextColor:(_item.valueColor ? _item.valueColor : [UIColor blackColor])];
+        [data setValueFont:(self.yValueFont ? self.yValueFont : [UIFont systemFontOfSize:12])];
+        [data setValueTextColor:(self.yValueColor ? self.yValueColor : [UIColor blackColor])];
         _chartView.data = data;
     }
 }

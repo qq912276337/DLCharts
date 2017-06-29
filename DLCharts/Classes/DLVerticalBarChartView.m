@@ -80,13 +80,13 @@
 - (void)setLegendEnable:(BOOL)legendEnable {
     _legendEnable = legendEnable;
     
-    _chartView.legend.enabled = _legendEnable;
+    _chartView.legend.enabled = legendEnable;
 }
 
 - (void)setItem:(DLChartConfigureItem *)item {
     _item = item;
     
-    [self setupVerticalBarChartViewDataWithItem:_item];
+    [self setupVerticalBarChartViewDataWithItem:item];
 }
 
 - (void)setupVerticalBarChartViewDataWithItem:(DLChartConfigureItem *)item {
@@ -94,8 +94,8 @@
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return ;
     
-    if (_item.xAxisValueFormatterBlock) {
-        _item.xAxisValueFormatterBlock(_chartView.xAxis);
+    if (self.xAxisValueFormatterBlock) {
+        self.xAxisValueFormatterBlock(_chartView.xAxis,1);
     }
     
     NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.names.count];
@@ -124,8 +124,8 @@
         
         BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
         data.barWidth = 0.9f;
-        [data setValueFont:(_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12])];
-        [data setValueTextColor:(_item.valueColor ? _item.valueColor : [UIColor darkGrayColor])];
+        [data setValueFont:(self.yValueFont ? self.yValueFont : [UIFont systemFontOfSize:12])];
+        [data setValueTextColor:(self.yValueColor ? self.yValueColor : [UIColor darkGrayColor])];
         _chartView.data = data;
     }
 }

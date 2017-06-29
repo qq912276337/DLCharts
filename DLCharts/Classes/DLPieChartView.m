@@ -67,13 +67,13 @@
 - (void)setLegendEnable:(BOOL)legendEnable {
     _legendEnable = legendEnable;
     
-    _chartView.legend.enabled = _legendEnable;
+    _chartView.legend.enabled = legendEnable;
 }
 
 - (void)setItem:(DLChartConfigureItem *)item {
     _item = item;
     
-    [self setupPieChartViewDataWithItem:_item];
+    [self setupPieChartViewDataWithItem:item];
 }
 
 - (void )setupPieChartViewDataWithItem:(DLChartConfigureItem *)item{
@@ -81,7 +81,7 @@
     if (item.values.count <= 0) return;
     
     //饼状图描述
-    _chartView.descriptionText = _item.title;
+    _chartView.descriptionText = self.item.title;
     
     //每个区块的数据
     NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.values.count];
@@ -110,7 +110,7 @@
     dataSet.valueLinePart1Length = 0.5;//折线中第一段长度占比
     dataSet.valueLinePart2Length = 0.4;//折线中第二段长度最大占比
     dataSet.valueLineWidth = 1;//折线的粗细
-    dataSet.valueLineColor = (_item.valueColor ? _item.valueColor : [UIColor brownColor]);//折线颜色
+    dataSet.valueLineColor = (self.yValueColor ? self.yValueColor : [UIColor brownColor]);//折线颜色
     
     //data
     PieChartData *data = [[PieChartData alloc] initWithDataSet:dataSet];
@@ -119,8 +119,8 @@
     formatter.maximumFractionDigits = 0;//小数位数
     formatter.multiplier = @1.f;
     [data setValueFormatter:[[ChartDefaultValueFormatter alloc] initWithFormatter:formatter]];//设置显示数据格式
-    [data setValueFont:(_item.valueFont ? _item.valueFont : [UIFont systemFontOfSize:12])];
-    [data setValueTextColor:(_item.valueColor ? _item.valueColor : [UIColor brownColor])];
+    [data setValueFont:(self.yValueFont ? self.yValueFont : [UIFont systemFontOfSize:12])];
+    [data setValueTextColor:(self.yValueColor ? self.yValueColor : [UIColor brownColor])];
     _chartView.data = data;
 }
 

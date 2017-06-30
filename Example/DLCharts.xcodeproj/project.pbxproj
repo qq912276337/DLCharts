@@ -22,6 +22,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		B10B4CCB1F0622370020F9FF /* DLChartYValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B10B4CCA1F0622370020F9FF /* DLChartYValueFormatter.m */; };
 		B18A31EF1F00A55100C186D3 /* DLChartValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B18A31EE1F00A55100C186D3 /* DLChartValueFormatter.m */; };
 		B194419C1F01E73300BD8609 /* DLChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B194419B1F01E73300BD8609 /* DLChartViewController.m */; };
 		D285D5649A0BD4028184B8B8 /* Pods_DLCharts_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8A5FE1505220DBC548AD67 /* Pods_DLCharts_Example.framework */; };
@@ -64,6 +65,8 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B80E44F9AF3AF66C8831335 /* Pods_DLCharts_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DLCharts_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8A5FE1505220DBC548AD67 /* Pods_DLCharts_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DLCharts_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10B4CC91F0622370020F9FF /* DLChartYValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChartYValueFormatter.h; sourceTree = "<group>"; };
+		B10B4CCA1F0622370020F9FF /* DLChartYValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChartYValueFormatter.m; sourceTree = "<group>"; };
 		B18A31ED1F00A55100C186D3 /* DLChartValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChartValueFormatter.h; sourceTree = "<group>"; };
 		B18A31EE1F00A55100C186D3 /* DLChartValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChartValueFormatter.m; sourceTree = "<group>"; };
 		B194419A1F01E73300BD8609 /* DLChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChartViewController.h; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				B194419B1F01E73300BD8609 /* DLChartViewController.m */,
 				B18A31ED1F00A55100C186D3 /* DLChartValueFormatter.h */,
 				B18A31EE1F00A55100C186D3 /* DLChartValueFormatter.m */,
+				B10B4CC91F0622370020F9FF /* DLChartYValueFormatter.h */,
+				B10B4CCA1F0622370020F9FF /* DLChartYValueFormatter.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -355,6 +360,7 @@
 				6003F5A7195388D20070C39A /* DLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				B194419C1F01E73300BD8609 /* DLChartViewController.m in Sources */,
+				B10B4CCB1F0622370020F9FF /* DLChartYValueFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

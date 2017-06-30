@@ -47,6 +47,7 @@
     xAxis.drawGridLinesEnabled = NO;//不绘制网格线
     xAxis.granularity = 1.0; // only intervals of 1 day
     xAxis.labelCount = 7;
+    xAxis.granularity = self.spaceBetweenX;
     
     NSNumberFormatter *leftAxisFormatter = [[NSNumberFormatter alloc] init];
     leftAxisFormatter.minimumFractionDigits = 0;
@@ -96,6 +97,9 @@
     
     if (self.xAxisValueFormatterBlock) {
         self.xAxisValueFormatterBlock(_chartView.xAxis,1);
+    }
+    if (self.yAxisValueFormatterBlock) {
+        self.yAxisValueFormatterBlock(_chartView.leftAxis);
     }
     
     NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.names.count];

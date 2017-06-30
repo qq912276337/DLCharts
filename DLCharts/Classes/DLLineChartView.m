@@ -52,6 +52,7 @@
     xAxis.gridColor = [UIColor clearColor];
     xAxis.labelTextColor = [UIColor blackColor];//文字颜色
     xAxis.axisLineColor = [UIColor grayColor];
+    xAxis.granularity = self.spaceBetweenX;
     
     _chartView.rightAxis.enabled = NO;
     _chartView.legend.form = ChartLegendFormLine;
@@ -96,6 +97,9 @@
     
     if (self.xAxisValueFormatterBlock) {
         self.xAxisValueFormatterBlock(_chartView.xAxis,1);
+    }
+    if (self.yAxisValueFormatterBlock) {
+        self.yAxisValueFormatterBlock(_chartView.leftAxis);
     }
     
     NSMutableArray *values = [NSMutableArray arrayWithCapacity:item.names.count];

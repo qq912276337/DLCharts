@@ -52,7 +52,6 @@
     leftAxis.labelFont = [UIFont systemFontOfSize:10.f];
     leftAxis.drawAxisLineEnabled = YES;
     leftAxis.drawGridLinesEnabled = YES;
-    leftAxis.granularity = self.spaceBetweenY;
 //    leftAxis.axisMinimum = 0.0; // this replaces startAtZero = YES
     
     ChartYAxis *rightAxis = _chartView.rightAxis;
@@ -60,7 +59,6 @@
     rightAxis.labelFont = [UIFont systemFontOfSize:10.f];
     rightAxis.drawAxisLineEnabled = YES;
     rightAxis.drawGridLinesEnabled = NO;
-    rightAxis.granularity = self.spaceBetweenY;
 //    rightAxis.axisMinimum = 0.0; // this replaces startAtZero = YES
     
     ChartLegend *l = _chartView.legend;
@@ -85,6 +83,11 @@
     
     _chartView.fitBars = YES;
     [_chartView animateWithYAxisDuration:2];
+    
+}
+
+- (void)dealloc {
+    
 }
 
 #pragma mark - Setter or Getter
@@ -117,7 +120,7 @@
     }
     
     if (self.yAxisValueFormatterBlock) {
-        self.yAxisValueFormatterBlock(_chartView.leftAxis,self.spaceBetweenY);
+        self.yAxisValueFormatterBlock(_chartView.leftAxis);
     }
     
     NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.values.count];
@@ -125,7 +128,7 @@
     for (int i = 0; i < item.values.count; i++)
     {
         double y = [item.values[i] floatValue];
-        [yVals addObject:[[BarChartDataEntry alloc] initWithX:i * self.spaceBetweenX y:y * self.spaceBetweenY]];
+        [yVals addObject:[[BarChartDataEntry alloc] initWithX:i * self.spaceBetweenX y:y]];
         if (y < minY) {
             minY = y;
         }

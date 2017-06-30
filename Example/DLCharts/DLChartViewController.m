@@ -8,6 +8,7 @@
 
 #import "DLChartViewController.h"
 #import "DLChartValueFormatter.h"
+#import "DLChartYValueFormatter.h"
 
 @interface DLChartViewController ()
 
@@ -32,15 +33,10 @@
     
     DLChartConfigureItem *item = [[DLChartConfigureItem alloc] init];
     item.title = @"chart";
-    item.names = @[@"qqqqqqa",@"qqqqb"];
-    item.values = @[@"10",@"80"];
+    item.names = @[@"qqqqqqa",@"qqqqb",@"10",@"80",@"10",@"80",@"10",@"80",@"10",@"80"];
+    item.values = @[@"10",@"80",@"10",@"80",@"10",@"80",@"10",@"80",@"10",@"80"];
     
     __weak typeof(item) weakItem = item;
-//    item.xAxisValueFormatterBlock = ^(ChartXAxis *xAxis) {
-//        DLChartValueFormatter *format = [[DLChartValueFormatter alloc] init];
-//        format.names = weakItem.names;
-//        xAxis.valueFormatter = format;
-//    };
     
     if (_type == DLChartsItemTypePie) {
         DLPieChartView *pie = [[DLPieChartView alloc] init];
@@ -71,6 +67,11 @@
             format.names = weakItem.names;
             format.spaceForX = spaceBetweenX;
             xAxis.valueFormatter = format;
+        };
+        
+        pie.yAxisValueFormatterBlock = ^(ChartYAxis *yAxis) {
+            DLChartYValueFormatter *format = [[DLChartYValueFormatter alloc] initWithNames:weakItem.names];
+            yAxis.valueFormatter = format;
         };
         pie.item = item;
         pie.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);

@@ -10,4 +10,12 @@
 
 @implementation DLChartBaseView
 
+- (instancetype)init {
+    if (self = [super init]) {
+        _spaceBetweenY = 1;
+        _spaceBetweenX = 10;
+    }
+    return self;
+}
+
 @end

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class ChartXAxis,DLChartConfigureItem;
+@class ChartXAxis,ChartYAxis,DLChartConfigureItem;
 
 typedef void(^DLChartItemXAxisValueFormatterBlock)(ChartXAxis *xAxis,NSUInteger spaceBetweenX);
+
+typedef void(^DLChartItemYAxisValueFormatterBlock)(ChartYAxis *xAxis,NSUInteger spaceBetweenX);
 
 @interface DLChartBaseView : UIView
 
@@ -20,11 +22,23 @@ typedef void(^DLChartItemXAxisValueFormatterBlock)(ChartXAxis *xAxis,NSUInteger 
 @property (nonatomic, strong) UIColor *yValueColor;
 
 @property (nonatomic, strong) UIFont *yValueFont;
+
+@property (nonatomic, assign) NSUInteger spaceBetweenX;
+
+@property (nonatomic, assign) NSUInteger spaceBetweenY;
+
 /**
  * X轴值映射回调
  * param xAxis ChartXAxis
  * param spaceBetweenX x间距
  */
 @property (nonatomic, copy) DLChartItemXAxisValueFormatterBlock xAxisValueFormatterBlock;
+
+/**
+ * Y轴值映射回调
+ * param yAxis ChartYAxis
+ * param spaceBetweenY y间距
+ */
+@property (nonatomic, copy) DLChartItemYAxisValueFormatterBlock yAxisValueFormatterBlock;
 
 @end

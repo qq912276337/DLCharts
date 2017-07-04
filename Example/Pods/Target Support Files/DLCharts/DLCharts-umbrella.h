@@ -12,7 +12,7 @@
 
 #import "DLChartBaseView.h"
 #import "DLChartConfigureItem.h"
-#import "DLChartsHeader.h"
+#import "DLCharts.h"
 #import "DLHorizontalBarChartView.h"
 #import "DLLineChartView.h"
 #import "DLPieChartView.h"

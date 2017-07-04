@@ -8,6 +8,7 @@
 
 #import "DLChartViewController.h"
 #import "DLChartValueFormatter.h"
+#import "DLYChartFormattter.h"
 
 @interface DLChartViewController ()
 
@@ -71,6 +72,11 @@
             format.names = weakItem.names;
             format.spaceForX = spaceBetweenX;
             xAxis.valueFormatter = format;
+        };
+        pie.yAxisValueFormatterBlock = ^(ChartYAxis *yAxis1, ChartYAxis *yAxis2) {
+            DLYChartFormattter *format = [[DLYChartFormattter alloc] init];
+            yAxis1.valueFormatter = format;
+            yAxis2.valueFormatter = format;
         };
         pie.item = item;
         pie.frame = CGRectMake(0, 164, self.view.bounds.size.width,  self.view.bounds.size.width);

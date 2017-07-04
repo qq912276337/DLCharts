@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <DLCharts/DLChartsHeader.h>
+#import <DLCharts/DLCharts.h>
 
 @interface DLChartViewController : UIViewController
 

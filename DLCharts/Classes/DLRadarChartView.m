@@ -74,6 +74,13 @@
 }
 
 - (void)setupViewDataWithItem:(DLChartConfigureItem *)item {
+    NSAssert(item.names.count == item.values.count, @"names.count != values.count");
+    if (item.values.count <= 0) return ;
+    
+    if (self.yAxisValueFormatterBlock) {
+        self.yAxisValueFormatterBlock(_chartView.yAxis,nil);
+    }
+    
     NSMutableArray *entries2 = [NSMutableArray arrayWithCapacity:item.values.count];
     
     for (int i = 0; i < item.values.count; i++)

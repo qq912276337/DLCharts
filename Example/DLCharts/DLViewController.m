@@ -7,7 +7,7 @@
 //
 
 #import "DLViewController.h"
-#import <DLCharts/DLChartsHeader.h>
+#import <DLCharts/DLCharts.h>
 #import "DLChartViewController.h"
 #import "DLChartValueFormatter.h"
 

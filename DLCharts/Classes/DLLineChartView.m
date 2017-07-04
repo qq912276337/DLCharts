@@ -89,13 +89,16 @@
     [self setupLineChartViewDataWithItem:self.item];
 }
 
-- (void)setupLineChartViewDataWithItem:(DLChartConfigureItem *)item
-{
+- (void)setupLineChartViewDataWithItem:(DLChartConfigureItem *)item {
     NSAssert(item.names.count == item.values.count, @"names.count != values.count");
     if (item.values.count <= 0) return ;
     
     if (self.xAxisValueFormatterBlock) {
         self.xAxisValueFormatterBlock(_chartView.xAxis,1);
+    }
+    
+    if (self.yAxisValueFormatterBlock) {
+        self.yAxisValueFormatterBlock(_chartView.leftAxis,_chartView.rightAxis);
     }
     
     NSMutableArray *values = [NSMutableArray arrayWithCapacity:item.names.count];

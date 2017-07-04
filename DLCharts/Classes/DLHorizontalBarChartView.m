@@ -117,7 +117,7 @@
     }
     
     if (self.yAxisValueFormatterBlock) {
-        self.yAxisValueFormatterBlock(_chartView.leftAxis,self.spaceBetweenY);
+        self.yAxisValueFormatterBlock(_chartView.leftAxis,_chartView.rightAxis);
     }
     
     NSMutableArray *yVals = [NSMutableArray arrayWithCapacity:item.values.count];

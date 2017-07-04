@@ -11,7 +11,7 @@
 
 typedef void(^DLChartItemXAxisValueFormatterBlock)(ChartXAxis *xAxis,NSUInteger spaceBetweenX);
 
-typedef void(^DLChartItemYAxisValueFormatterBlock)(ChartYAxis *xAxis,NSUInteger spaceBetweenX);
+typedef void(^DLChartItemYAxisValueFormatterBlock)(ChartYAxis *yAxis1,ChartYAxis *yAxis2);
 
 @interface DLChartBaseView : UIView
 

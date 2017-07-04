@@ -18,7 +18,7 @@ typedef NS_ENUM (NSInteger,DLChartsItemType) {
 
 @interface DLChartConfigureItem : NSObject
 
-@property (nonatomic, assign) NSString *title;
+@property (nonatomic, copy) NSString *title;
 
 @property (nonatomic, assign) DLChartsItemType type;
 

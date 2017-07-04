@@ -105,6 +105,9 @@
 }
 
 - (NSString *)stringForValue:(double)value axis:(ChartAxisBase *)axis {
+    if (value >= self.item.names.count) {
+        return  @"";
+    }
     return self.item.names[(int )(value)];
 }
 

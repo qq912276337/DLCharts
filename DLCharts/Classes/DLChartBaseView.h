@@ -11,7 +11,7 @@
 
 typedef void(^DLChartItemXAxisValueFormatterBlock)(ChartXAxis *xAxis,NSUInteger spaceBetweenX);
 
-typedef void(^DLChartItemYAxisValueFormatterBlock)(ChartYAxis *yAxis);
+typedef void(^DLChartItemYAxisValueFormatterBlock)(ChartYAxis *xAxis,NSUInteger spaceBetweenX);
 
 @interface DLChartBaseView : UIView
 
@@ -24,6 +24,8 @@ typedef void(^DLChartItemYAxisValueFormatterBlock)(ChartYAxis *yAxis);
 @property (nonatomic, strong) UIFont *yValueFont;
 
 @property (nonatomic, assign) NSUInteger spaceBetweenX;
+
+@property (nonatomic, assign) NSUInteger spaceBetweenY;
 
 /**
  * X轴值映射回调

@@ -32,8 +32,8 @@
     
     DLChartConfigureItem *item = [[DLChartConfigureItem alloc] init];
     item.title = @"chart";
-    item.names = @[@"qqqqqqa",@"qqqqb"];
-    item.values = @[@"10",@"80"];
+    item.names = @[@"qqqqqqa",@"qqqqb",@"10",@"80",@"10",@"80"];
+    item.values = @[@"10",@"80",@"10",@"80",@"10",@"80"];
     
     __weak typeof(item) weakItem = item;
 //    item.xAxisValueFormatterBlock = ^(ChartXAxis *xAxis) {
